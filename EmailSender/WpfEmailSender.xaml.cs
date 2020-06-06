@@ -23,14 +23,40 @@ namespace EmailSender
         public MainWindow()
         {
             InitializeComponent();
+            //cbSenderSelect.ItemsSource = Variables.Senders;
+            //cbSenderSelect.DisplayMemberPath = "Key";
+            //cbSenderSelect.SelectedValuePath = "Value";
+
+           // DataBase db = new DataBase();
+            //dgEmails.ItemsSource = db.Emails;
         }
 
         private void BtnClock_Click(object sender, RoutedEventArgs e)
         {
             tabControl.SelectedItem = tabPlanner;
-            cbSenderSelect.ItemsSource = Variables.Senders;
-            cbSenderSelect.DisplayMemberPath = "Key";
-            cbSenderSelect.SelectedValuePath = "Value";
+            
+        }
+
+        private void SendAtOnce_Click(object sender, RoutedEventArgs e)
+        {
+            string strLogin = cbSenderSelect.Text;
+            string strPassword = cbSenderSelect.SelectedValue.ToString();
+            if (string.IsNullOrEmpty(strLogin))
+            {
+                MessageBox.Show("Select sender's email address"); return;
+            }
+            if (string.IsNullOrEmpty(strPassword))
+            {
+                MessageBox.Show("Enter your password"); return;
+            }
+            EmailSendService emailSender = new EmailSendService(strLogin, strPassword);
+            emailSender.SendEmails((IQueryable<Email>)dgEmails.ItemsSource);
+
+        }
+
+        private void BtnSchedule_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

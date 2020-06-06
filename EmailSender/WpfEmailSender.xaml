@@ -28,9 +28,14 @@
                             <Button x:Name="btnDeleteSender" ToolTip="Delete Sender" HorizontalAlignment="Stretch" Height="25" Width="25">
                                 <Image  Source="Images/delete.png"></Image>
                             </Button>
-                            <ComboBox x:Name="cbSenderSelect" Height="25" Margin="0" VerticalAlignment="Top" Width="270" ToolTip="Select email address">
-                                
+                            <ComboBox x:Name="cbSenderSelect" Height="25" Margin="0" VerticalAlignment="Top" Width="270" ToolTip="Select email address" ItemsSource="{x:Static local:Variables.Senders}">
+                                <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Key}"/>
+                                </DataTemplate>
+                                </ComboBox.ItemTemplate>
                             </ComboBox>
+
                         </ToolBar>
                         <ToolBar x:Name="tbSmtp" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Band="1" BandIndex="0" Margin="0,0,-477.667,0" Width="500">
                             <Label x:Name="lSmtp" Content="Select Smtp-Server" Height="25" VerticalAlignment="Top" Width="130"/>
@@ -66,7 +71,13 @@
 
 
                     </ToolBarTray>
-                    <DataGrid Margin="0,65,0,0" Height="238"/>
+                    <DataGrid x:Name="dgEmails" Margin="0,65,0,0" Height="238" ItemsSource="{x:Static local:DataBase.Emails}" AutoGenerateColumns="False" IsReadOnly="True">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="#" Binding="{Binding Id}" Width="Auto"/>
+                            <DataGridTextColumn Header="Email" Binding="{Binding EmailCol}" Width="Auto"/>
+                            <DataGridTextColumn Header="Sender's Name" Binding="{Binding Name}" Width="*"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
 
                 </DockPanel>
             </TabItem>
@@ -75,13 +86,13 @@
                     <StackPanel>
                         <Calendar x:Name="cldScheduleDateTimes" SelectionMode="MultipleRange" HorizontalAlignment="Left" Margin="0,20,0,0"/>
                         <xctk:TimePicker HorizontalAlignment="Left" Width="179"/>
-                        <Button x:Name="btnSchedule" Height="20" Width="179" HorizontalAlignment="Left" Click="BtnClock_Click">
+                        <Button x:Name="btnSchedule" Height="20" Width="179" HorizontalAlignment="Left" Click="BtnSchedule_Click">
                             <StackPanel Orientation="Horizontal">
                                 <Image Source="Images/clock.png" Margin="0,0,5,0"></Image>
                                 <TextBlock Text="Schedule"></TextBlock>
                             </StackPanel>
                         </Button>
-                        <Button Content="Do not schedule" Height="20" Width="179" HorizontalAlignment="Left"/>
+                        <Button x:Name="SendAtOnce" Content="Send At Once" Height="20" Width="179" HorizontalAlignment="Left" Click="SendAtOnce_Click"/>
                     </StackPanel>
 
                 </Grid>

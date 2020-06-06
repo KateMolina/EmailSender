@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace EmailSender
 {
-    class DataBase
+    public static class DataBase
     {
+        static private EmailsDataContext emails = new EmailsDataContext();
+      static public IQueryable<Email> Emails
+        {
+            get { return from c in emails.Emails select c; }
+        }
+
     }
 }
