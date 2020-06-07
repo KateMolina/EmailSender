@@ -14,6 +14,7 @@ namespace EmailSender
         EmailSendService emailSendService;
         DateTime dtSend;
         IQueryable<Email> emails;
+        string mailFrom;
 
         public TimeSpan GetSendTime(string strSendTime)
         {
@@ -40,7 +41,7 @@ namespace EmailSender
         {
             if (dtSend.ToShortTimeString() == DateTime.Now.ToShortTimeString())
             {
-                emailSendService.SendEmails(emails);
+                emailSendService.SendEmails(emails, mailFrom);
                 timer.Stop();
                 MessageBox.Show("Emais have been sent");
             }

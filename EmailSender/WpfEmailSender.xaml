@@ -48,7 +48,7 @@
                             <Button x:Name="btnDeleteSmtp" ToolTip="Delete Smtp" HorizontalAlignment="Stretch" Height="25" Width="25">
                                 <Image  Source="Images/delete.png"></Image>
                             </Button>
-                            <ComboBox x:Name="cbSmtpSelect" Height="25" Margin="0" VerticalAlignment="Top" Width="270" SelectedIndex="0" ToolTip="Select Smtp-Server"/>
+                            <ComboBox x:Name="cbSmtpSelect" Height="25" Margin="0" VerticalAlignment="Top" Width="270" SelectedIndex="0" ToolTip="Select Smtp-Server" />
                         </ToolBar>
                         <ToolBar x:Name="tbPlanner" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="230" Band="0" BandIndex="1">
                             <Label x:Name="lPlanner" Content="Go to Planner" Height="25" Width="Auto"/>

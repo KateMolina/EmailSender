@@ -15,23 +15,25 @@ namespace EmailSender
         private string strLogin;
         private string strPassword;
 
-        private string strSmtp = "smtp.gmail.com";
-        private int iSmtpPort = 587;
-        private string strBody;
-        private string strSubject;
+        private string strSmtp; //= "smtp.gmail.com";
+        private int iSmtpPort;//= 587;
+        //private string strBody;
+      //  private string strSubject = "hi";
         #endregion
 
-        public EmailSendService(string sLogin, string sPassword)
+        public EmailSendService(string sLogin, string sPassword, string sSmtp, int iPort)
         {
             strLogin = sLogin;
             strPassword = sPassword;
+            strSmtp = sSmtp;
+            iSmtpPort = iPort;
         }
 
-        private void SendEmail (string mailTo, string name)
-        {
+        private void SendEmail (string mailFrom, string mailTo)
+         {
             using (MailMessage mm = new MailMessage(strLogin, mailTo))
             {
-                mm.Subject = strSubject;
+                mm.Subject = "hi";
                 mm.Body = "TestBody";
                 mm.IsBodyHtml = false;
                 SmtpClient sc = new SmtpClient(strSmtp, iSmtpPort);
@@ -49,11 +51,11 @@ namespace EmailSender
             }
                 
         }
-        public void SendEmails(IQueryable<Email> emails)
+        public void SendEmails(IQueryable<Email> emails, string mailFrom)
         {
             foreach(Email email in emails)
             {
-                SendEmail(email.EmailCol, email.Name);
+                SendEmail(mailFrom, email.EmailCol);
             }
         }
 

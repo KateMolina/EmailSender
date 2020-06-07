@@ -48,3 +48,5 @@ C:\Users\katemolina\Desktop\JustFolder\NewStart2020\EmailSender\EmailSender\bin\
 C:\Users\katemolina\Desktop\JustFolder\NewStart2020\EmailSender\EmailSender\bin\Debug\ru\Xceed.Wpf.AvalonDock.resources.dll
 C:\Users\katemolina\Desktop\JustFolder\NewStart2020\EmailSender\EmailSender\bin\Debug\sv\Xceed.Wpf.AvalonDock.resources.dll
 C:\Users\katemolina\Desktop\JustFolder\NewStart2020\EmailSender\EmailSender\bin\Debug\zh-Hans\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\katemolina\Desktop\JustFolder\NewStart2020\EmailSender\EmailSender\bin\Debug\CodePasswordDLL.dll
+C:\Users\katemolina\Desktop\JustFolder\NewStart2020\EmailSender\EmailSender\bin\Debug\CodePasswordDLL.pdb
