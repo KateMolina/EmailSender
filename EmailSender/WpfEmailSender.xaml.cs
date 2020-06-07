@@ -56,7 +56,14 @@ namespace EmailSender
 
         private void BtnSchedule_Click(object sender, RoutedEventArgs e)
         {
+            Scheduler sched = new Scheduler();
+            TimeSpan tsSendTime = sched.GetSendTime(timePicker.Text);
+            if(tsSendTime ==new TimeSpan()) { MessageBox.Show("Incorrect date format"); return; }
+            DateTime dtSendDateTime = (cldScheduleDateTimes.SelectedDate ?? DateTime.Today).Add(tsSendTime);
+            if (dtSendDateTime < DateTime.Now) { MessageBox.Show("Scheduled Date and Time should not be before current ones"); return; }
 
+            EmailSendService ess = new EmailSendService(cbSenderSelect.Text, cbSenderSelect.SelectedValue.ToString());
+            sched.SendEmails(dtSendDateTime, ess, (IQueryable<Email>)dgEmails.ItemsSource);
         }
     }
 }

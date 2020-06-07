@@ -85,7 +85,7 @@
                 <Grid >
                     <StackPanel>
                         <Calendar x:Name="cldScheduleDateTimes" SelectionMode="MultipleRange" HorizontalAlignment="Left" Margin="0,20,0,0"/>
-                        <xctk:TimePicker HorizontalAlignment="Left" Width="179"/>
+                        <xctk:TimePicker x:Name="timePicker" HorizontalAlignment="Left" Width="179"/>
                         <Button x:Name="btnSchedule" Height="20" Width="179" HorizontalAlignment="Left" Click="BtnSchedule_Click">
                             <StackPanel Orientation="Horizontal">
                                 <Image Source="Images/clock.png" Margin="0,0,5,0"></Image>
