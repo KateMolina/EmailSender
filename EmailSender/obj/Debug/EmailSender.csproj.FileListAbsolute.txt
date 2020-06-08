@@ -13,7 +13,6 @@ C:\Users\katemolina\Desktop\JustFolder\New Start 2020\EmailSender\EmailSender\ob
 C:\Users\katemolina\Desktop\JustFolder\New Start 2020\EmailSender\EmailSender\obj\Debug\EmailSender.csproj.CoreCompileInputs.cache
 C:\Users\katemolina\Desktop\JustFolder\New Start 2020\EmailSender\EmailSender\obj\Debug\EmailSender.exe
 C:\Users\katemolina\Desktop\JustFolder\New Start 2020\EmailSender\EmailSender\obj\Debug\EmailSender.pdb
-C:\Users\katemolina\Desktop\JustFolder\NewStart2020\EmailSender\EmailSender\obj\Debug\EmailSender.csprojAssemblyReference.cache
 C:\Users\katemolina\Desktop\JustFolder\NewStart2020\EmailSender\EmailSender\obj\Debug\WpfEmailSender.g.cs
 C:\Users\katemolina\Desktop\JustFolder\NewStart2020\EmailSender\EmailSender\obj\Debug\App.g.cs
 C:\Users\katemolina\Desktop\JustFolder\NewStart2020\EmailSender\EmailSender\obj\Debug\EmailSender_MarkupCompile.cache
@@ -50,3 +49,4 @@ C:\Users\katemolina\Desktop\JustFolder\NewStart2020\EmailSender\EmailSender\bin\
 C:\Users\katemolina\Desktop\JustFolder\NewStart2020\EmailSender\EmailSender\bin\Debug\zh-Hans\Xceed.Wpf.AvalonDock.resources.dll
 C:\Users\katemolina\Desktop\JustFolder\NewStart2020\EmailSender\EmailSender\bin\Debug\CodePasswordDLL.dll
 C:\Users\katemolina\Desktop\JustFolder\NewStart2020\EmailSender\EmailSender\bin\Debug\CodePasswordDLL.pdb
+C:\Users\katemolina\Desktop\JustFolder\NewStart2020\EmailSender\EmailSender\obj\Debug\EmailSender.csprojAssemblyReference.cache

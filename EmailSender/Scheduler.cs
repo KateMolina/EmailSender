@@ -16,6 +16,11 @@ namespace EmailSender
         IQueryable<Email> emails;
         string mailFrom;
 
+
+        public Scheduler(string From)
+        {
+            mailFrom = From;
+        }
         public TimeSpan GetSendTime(string strSendTime)
         {
             TimeSpan tsSendTime = new TimeSpan();

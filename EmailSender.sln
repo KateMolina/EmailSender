@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.1082
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmailSender", "EmailSender\EmailSender.csproj", "{1EB03796-92D9-48BD-B9B3-06BC5952F2A5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TabSwitcher", "TabSwitcher\TabSwitcher.csproj", "{5F0806D3-4622-4C4E-886B-105895EC9E01}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{1EB03796-92D9-48BD-B9B3-06BC5952F2A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1EB03796-92D9-48BD-B9B3-06BC5952F2A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1EB03796-92D9-48BD-B9B3-06BC5952F2A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F0806D3-4622-4C4E-886B-105895EC9E01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F0806D3-4622-4C4E-886B-105895EC9E01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F0806D3-4622-4C4E-886B-105895EC9E01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F0806D3-4622-4C4E-886B-105895EC9E01}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

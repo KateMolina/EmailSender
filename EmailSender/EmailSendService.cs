@@ -17,16 +17,17 @@ namespace EmailSender
 
         private string strSmtp; //= "smtp.gmail.com";
         private int iSmtpPort;//= 587;
-        //private string strBody;
+        private string strBody;
       //  private string strSubject = "hi";
         #endregion
 
-        public EmailSendService(string sLogin, string sPassword, string sSmtp, int iPort)
+        public EmailSendService(string sLogin, string sPassword, string sSmtp, int iPort, string body)
         {
             strLogin = sLogin;
             strPassword = sPassword;
             strSmtp = sSmtp;
             iSmtpPort = iPort;
+            strBody = body;
         }
 
         private void SendEmail (string mailFrom, string mailTo)
@@ -34,7 +35,7 @@ namespace EmailSender
             using (MailMessage mm = new MailMessage(strLogin, mailTo))
             {
                 mm.Subject = "hi";
-                mm.Body = "TestBody";
+                mm.Body = strBody;
                 mm.IsBodyHtml = false;
                 SmtpClient sc = new SmtpClient(strSmtp, iSmtpPort);
                 sc.EnableSsl = true;

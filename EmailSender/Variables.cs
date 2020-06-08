@@ -9,7 +9,7 @@ namespace EmailSender
 {
     public static class Variables
     {
-        private static Dictionary<string, string> dicSenders = new Dictionary<string, string>(){ { "malinaraspberry888@gmail.com", CodePassword.getPassword("#Purple55") }};
+        private static Dictionary<string, string> dicSenders = new Dictionary<string, string>(){ { "malinaraspberry888@gmail.com", CodePassword.getPassword("$Qvsqmf66") }};
 
         public static Dictionary<string, string> Senders { get { return dicSenders; } }
 
