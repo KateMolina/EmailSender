@@ -20,6 +20,7 @@ namespace EmailSender
 	using System.Linq.Expressions;
 	using System.ComponentModel;
 	using System;
+    using EmailSendServiceDLL;
 	
 	
 	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="MailsAndSenders")]
@@ -75,7 +76,7 @@ namespace EmailSender
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Email")]
-	public partial class Email : INotifyPropertyChanging, INotifyPropertyChanged
+	public partial class Email : INotifyPropertyChanging, INotifyPropertyChanged, IEmail
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);

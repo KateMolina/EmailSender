@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using CodePasswordDLL;
-
+using EmailSendServiceDLL;
 
 namespace EmailSender
 {
@@ -96,6 +96,7 @@ namespace EmailSender
             if (dtSendDateTime < DateTime.Now) { MessageBox.Show("Scheduled Date and Time should not be before current ones"); return; }
 
             item = (KeyValuePair<string, int>)cbSmtpSelect.SelectionBoxItem;
+            //EmailSendService ess = new EmailSendService(cbSenderSelect.Text, cbSenderSelect.SelectedValue.ToString(), item.Key, item.Value, ContentFromRTB(rtb));
             EmailSendService ess = new EmailSendService(cbSenderSelect.Text, cbSenderSelect.SelectedValue.ToString(), item.Key, item.Value, ContentFromRTB(rtb));
             sched.SendEmails(dtSendDateTime, ess, (IQueryable<Email>)dgEmails.ItemsSource);
         }

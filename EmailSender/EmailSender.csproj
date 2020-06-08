@@ -38,6 +38,9 @@
     <Reference Include="CodePasswordDLL">
       <HintPath>..\..\CodePasswordDLL\CodePasswordDLL\bin\Release\CodePasswordDLL.dll</HintPath>
     </Reference>
+    <Reference Include="EmailSendServiceDLL">
+      <HintPath>..\..\EmailSendServiceDLL\EmailSendServiceDLL\bin\Release\EmailSendServiceDLL.dll</HintPath>
+    </Reference>
     <Reference Include="Hardcodet.Wpf.TaskbarNotification, Version=1.0.5.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Hardcodet.NotifyIcon.Wpf.1.0.8\lib\net451\Hardcodet.Wpf.TaskbarNotification.dll</HintPath>
     </Reference>
@@ -82,7 +85,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Emails.dbml</DependentUpon>
     </Compile>
-    <Compile Include="PassCredentials.cs" />
     <Compile Include="Scheduler.cs" />
     <Page Include="WpfEmailSender.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -94,7 +96,6 @@
     </Compile>
     <Compile Include="AppConfig.cs" />
     <Compile Include="DataBase.cs" />
-    <Compile Include="EmailSendService.cs" />
     <Compile Include="Variables.cs" />
     <Compile Include="WpfEmailSender.xaml.cs">
       <DependentUpon>WpfEmailSender.xaml</DependentUpon>
@@ -136,9 +137,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Images\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
@@ -147,6 +146,13 @@
       <Project>{5F0806D3-4622-4C4E-886B-105895EC9E01}</Project>
       <Name>TabSwitcher</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\add.png" />
+    <Resource Include="Images\clock.png" />
+    <Resource Include="Images\delete.png" />
+    <Resource Include="Images\Edit.png" />
+    <Resource Include="Images\mail.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

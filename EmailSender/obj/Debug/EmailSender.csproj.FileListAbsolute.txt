@@ -50,3 +50,7 @@ C:\Users\katemolina\Desktop\JustFolder\NewStart2020\EmailSender\EmailSender\bin\
 C:\Users\katemolina\Desktop\JustFolder\NewStart2020\EmailSender\EmailSender\bin\Debug\CodePasswordDLL.dll
 C:\Users\katemolina\Desktop\JustFolder\NewStart2020\EmailSender\EmailSender\bin\Debug\CodePasswordDLL.pdb
 C:\Users\katemolina\Desktop\JustFolder\NewStart2020\EmailSender\EmailSender\obj\Debug\EmailSender.csprojAssemblyReference.cache
+C:\Users\katemolina\Desktop\JustFolder\NewStart2020\EmailSender\EmailSender\bin\Debug\TabSwitcher.dll
+C:\Users\katemolina\Desktop\JustFolder\NewStart2020\EmailSender\EmailSender\bin\Debug\TabSwitcher.pdb
+C:\Users\katemolina\Desktop\JustFolder\NewStart2020\EmailSender\EmailSender\bin\Debug\EmailSendServiceDLL.dll
+C:\Users\katemolina\Desktop\JustFolder\NewStart2020\EmailSender\EmailSender\bin\Debug\EmailSendServiceDLL.pdb

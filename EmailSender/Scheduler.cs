@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Threading;
 using Xceed.Wpf.Toolkit;
+using EmailSendServiceDLL;
 
 namespace EmailSender
 {
