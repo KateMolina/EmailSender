@@ -81,7 +81,6 @@
                             <DataGridTextColumn Header="Sender's Name" Binding="{Binding Name}" Width="*"/>
                         </DataGrid.Columns>
                     </DataGrid>
-
                 </DockPanel>
             </TabItem>
             <TabItem x:Name="tabPlanner" Header="Planner">

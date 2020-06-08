@@ -113,6 +113,6 @@ namespace EmailSender
             TextRange tr = new TextRange(rtb.Document.ContentStart, rtb.Document.ContentEnd);
             return tr.Text;
         }
-
+        //Didn't get how to add TabSwitcher
     }
 }
