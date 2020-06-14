@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Threading;
 using Xceed.Wpf.Toolkit;
+using EmailSendServiceDLL;
+using System.Collections.ObjectModel;
 
 namespace EmailSender
 {
@@ -13,7 +15,8 @@ namespace EmailSender
         DispatcherTimer timer = new DispatcherTimer();
         EmailSendService emailSendService;
         DateTime dtSend;
-        IQueryable<Email> emails;
+        // ObservableCollection<Email> emails;
+        List<string> emails;
         string mailFrom;
 
 
@@ -32,7 +35,7 @@ namespace EmailSender
             return tsSendTime;
         }
 
-        public void SendEmails(DateTime dtSend, EmailSendService emailSendService, IQueryable<Email> emails)
+        public void SendEmails(DateTime dtSend, EmailSendService emailSendService, List<string> emails)
         {
             this.dtSend = dtSend;
             this.emailSendService = emailSendService;

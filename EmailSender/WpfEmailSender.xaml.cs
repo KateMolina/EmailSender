@@ -13,7 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using CodePasswordDLL;
-
+using EmailSender.ViewModel;
+using EmailSendServiceDLL;
 
 namespace EmailSender
 {
@@ -67,9 +68,12 @@ namespace EmailSender
             {
                 if (!isRichTBEmpty(rtb))
                 {
-
                     EmailSendService emailSender = new EmailSendService(strLogin, strPassword, sSmtp, iPort, ContentFromRTB(rtb));
-                    emailSender.SendEmails((IQueryable<Email>)dgEmails.ItemsSource, strLogin);
+                    var locator = (ViewModelLocator)FindResource("Locator");
+                    List<string> emails = new List<string>();
+                    foreach(Email email in locator.Main.Emails)
+                    { emails.Add(email.EmailCol); }
+                    emailSender.SendEmails(emails, strLogin);
                 }
                 else
                 {
@@ -97,7 +101,10 @@ namespace EmailSender
 
             item = (KeyValuePair<string, int>)cbSmtpSelect.SelectionBoxItem;
             EmailSendService ess = new EmailSendService(cbSenderSelect.Text, cbSenderSelect.SelectedValue.ToString(), item.Key, item.Value, ContentFromRTB(rtb));
-            sched.SendEmails(dtSendDateTime, ess, (IQueryable<Email>)dgEmails.ItemsSource);
+            var locator = (ViewModelLocator)FindResource("Locator");
+            List<string> emails = new List<string>();
+            foreach(Email email in locator.Main.Emails) { emails.Add(email.EmailCol); }
+            sched.SendEmails(dtSendDateTime, ess, emails);
         }
 
         public bool isRichTBEmpty(RichTextBox rtb)
