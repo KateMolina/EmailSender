@@ -5,24 +5,28 @@ using System.Collections.ObjectModel;
 
 namespace EmailSender.ViewModel
 {
-    
+
     public class MainViewModel : ViewModelBase
     {
         ObservableCollection<Email> _Emails;
         IDataAccessService _serviceProxy;
         Email _EmailInfo;
         public ObservableCollection<Email> Emails
-        { get{ return _Emails; }
-          set { _Emails = value;
-                RaisePropertyChanged(nameof(Emails)); }
+        {
+            get { return _Emails; }
+            set
+            {
+                _Emails = value;
+                RaisePropertyChanged(nameof(Emails));
+            }
         }
 
-        public Email EmailInfo { get { return _EmailInfo; } set { _EmailInfo = value;RaisePropertyChanged(nameof(EmailInfo)); } }
+        public Email EmailInfo { get { return _EmailInfo; } set { _EmailInfo = value; RaisePropertyChanged(nameof(EmailInfo)); } }
 
         void GetEmails()
         {
             Emails.Clear();
-            foreach(var item in _serviceProxy.GetEmails()) { Emails.Add(item); }
+            foreach (var item in _serviceProxy.GetEmails()) { Emails.Add(item); }
         }
 
         public RelayCommand ReadAllCommand { get; set; }
@@ -37,7 +41,7 @@ namespace EmailSender.ViewModel
                 RaisePropertyChanged(nameof(EmailInfo));
             }
         }
- 
+
         public MainViewModel(IDataAccessService servProxy)
         {
             _serviceProxy = servProxy;
@@ -46,8 +50,8 @@ namespace EmailSender.ViewModel
             ReadAllCommand = new RelayCommand(GetEmails);
             SaveCommand = new RelayCommand<Email>(SaveEmail);
         }
-        
-           
-        
+
+
+
     }
 }

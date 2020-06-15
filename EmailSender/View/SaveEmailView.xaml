@@ -5,8 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:ignore ="http://www.galasoft.ch/ignore"
         mc:Ignorable="d ignore"
-             DataContext="{Binding Main, Source={StaticResource Locator}}"
-    Height="450" Width="800">
+             DataContext="{Binding Main, Source={StaticResource Locator}}">
     <Grid Margin="0 50 0 0">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
