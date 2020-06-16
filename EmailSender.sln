@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 15.0.28307.1082
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmailSender", "EmailSender\EmailSender.csproj", "{1EB03796-92D9-48BD-B9B3-06BC5952F2A5}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A7DBACCB-F612-407E-BB1C-433B7D5C668F} = {A7DBACCB-F612-407E-BB1C-433B7D5C668F}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TabSwitcher", "TabSwitcher\TabSwitcher.csproj", "{5F0806D3-4622-4C4E-886B-105895EC9E01}"
 EndProject
