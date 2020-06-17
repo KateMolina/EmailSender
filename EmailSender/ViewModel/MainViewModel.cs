@@ -2,6 +2,8 @@ using EmailSender.Services;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Windows.Data;
 
 namespace EmailSender.ViewModel
 {
@@ -11,14 +13,25 @@ namespace EmailSender.ViewModel
         ObservableCollection<Email> _Emails;
         IDataAccessService _serviceProxy;
         Email _EmailInfo;
+        private string _filterName;
+        private CollectionViewSource _emailsView;
+
         public ObservableCollection<Email> Emails
         {
             get { return _Emails; }
             set
             {
-                _Emails = value;
-                RaisePropertyChanged(nameof(Emails));
+                if (!Set(ref _Emails, value)) return;
+                _emailsView = new CollectionViewSource { Source = value };
+                _emailsView.Filter += OnEmailsCollectionViewSourceFilter;
+                RaisePropertyChanged(nameof(EmailsView));
             }
+        }
+
+        private void OnEmailsCollectionViewSourceFilter(object sender, FilterEventArgs e)
+        {
+            if (!(e.Item is Email email) || string.IsNullOrWhiteSpace(_filterName)) return;
+            if (!email.Name.Contains(_filterName)) e.Accepted=false;
         }
 
         public Email EmailInfo { get { return _EmailInfo; } set { _EmailInfo = value; RaisePropertyChanged(nameof(EmailInfo)); } }
@@ -29,6 +42,20 @@ namespace EmailSender.ViewModel
             foreach (var item in _serviceProxy.GetEmails()) { Emails.Add(item); }
         }
 
+        public ICollectionView EmailsView => _emailsView?.View;
+
+        public string FilterName
+        {
+            get
+            {
+                return _filterName;
+            }
+            set
+            {
+                if (!Set(ref _filterName, value)) return;
+                EmailsView.Refresh();
+            }
+        }
         public RelayCommand ReadAllCommand { get; set; }
         public RelayCommand<Email> SaveCommand { get; set; }
 
