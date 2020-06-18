@@ -10,4 +10,3 @@ C:\Users\katemolina\Desktop\JustFolder\NewStart2020\EmailSender\TabSwitcher\obj\
 C:\Users\katemolina\Desktop\JustFolder\NewStart2020\EmailSender\TabSwitcher\obj\Debug\TabSwitcher.csproj.CoreCompileInputs.cache
 C:\Users\katemolina\Desktop\JustFolder\NewStart2020\EmailSender\TabSwitcher\obj\Debug\TabSwitcher.dll
 C:\Users\katemolina\Desktop\JustFolder\NewStart2020\EmailSender\TabSwitcher\obj\Debug\TabSwitcher.pdb
-C:\Users\katemolina\Desktop\JustFolder\NewStart2020\EmailSender\TabSwitcher\obj\Debug\TabSwitcher.csprojAssemblyReference.cache

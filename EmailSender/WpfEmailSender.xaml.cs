@@ -93,7 +93,7 @@ namespace EmailSender
             Scheduler sched = new Scheduler(cbSenderSelect.Text);
             TimeSpan tsSendTime = sched.GetSendTime(timePicker.Text);
 
-            if(tsSendTime ==new TimeSpan()) { MessageBox.Show("Incorrect date format"); return; }
+//            if(tsSendTime ==new TimeSpan()) { MessageBox.Show("Incorrect date format"); return; }
 
             DateTime dtSendDateTime = (cldScheduleDateTimes.SelectedDate ?? DateTime.Today).Add(tsSendTime);
 

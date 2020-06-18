@@ -10,7 +10,7 @@ using System.Collections.ObjectModel;
 
 namespace EmailSender
 {
-    class Scheduler
+    public class Scheduler
     {
         DispatcherTimer timer = new DispatcherTimer();
         EmailSendService emailSendService;
@@ -18,8 +18,22 @@ namespace EmailSender
         // ObservableCollection<Email> emails;
         List<string> emails;
         string mailFrom;
+        Dictionary<DateTime, string> dicDates = new Dictionary<DateTime, string>();
+        public Dictionary<DateTime,string> DatesEmailTests
+        {
+            get { return dicDates; }
+            set
+            {
+                dicDates = value;
+                dicDates = dicDates.OrderBy(pair => pair.Key).ToDictionary(pair => pair.Key, pair => pair.Value);
+            }
+        }
 
 
+        public Scheduler()
+        {
+
+        }
         public Scheduler(string From)
         {
             mailFrom = From;
@@ -47,12 +61,23 @@ namespace EmailSender
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-            if (dtSend.ToShortTimeString() == DateTime.Now.ToShortTimeString())
+            if (dicDates.Count == 0){ timer.Stop();
+            MessageBox.Show("Emails have been sent"); }
+            else if(dicDates.Keys.First<DateTime>().ToShortTimeString()== DateTime.Now.ToShortTimeString())
             {
+                emailSendService.StrBody = dicDates[dicDates.Keys.First<DateTime>()];
+                emailSendService.StrSubject = $"Distribution from {dicDates.Keys.First<DateTime>().ToShortTimeString()} ";
                 emailSendService.SendEmails(emails, mailFrom);
-                timer.Stop();
-                MessageBox.Show("Emais have been sent");
+                dicDates.Remove(dicDates.Keys.First<DateTime>());
             }
+
+
+            //if (dtSend.ToShortTimeString() == DateTime.Now.ToShortTimeString())
+            //{
+            //    emailSendService.SendEmails(emails, mailFrom);
+            //    timer.Stop();
+            //    MessageBox.Show("Emais have been sent");
+            //}
 
         }
     }
