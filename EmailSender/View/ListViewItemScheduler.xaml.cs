@@ -37,8 +37,6 @@ namespace EmailSender.View
             SchedulerRTBWindow rtbWin = new SchedulerRTBWindow();
             rtbWin.Show();
         }
-
-
         private void BtnDeleteDT_Click(object sender, RoutedEventArgs e)
         {
             

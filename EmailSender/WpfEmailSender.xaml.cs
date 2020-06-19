@@ -103,6 +103,12 @@ namespace EmailSender
                 lvItem = item as ListViewItemScheduler;
                 sched.DatesEmailDic.Add(lvItem.TimePickerValue, lvItem.Text);
             }
+           var locator = (ViewModelLocator)FindResource("Locator");
+           List<string> emails = new List<string>();
+           foreach (Email email in locator.Main.Emails) { emails.Add(email.EmailCol); }
+            sched.SendEmails(emailSender, emails);
+
+            #region Old code for TimePicker control using TimeSpan obj
             // Scheduler sched = new Scheduler(cbSenderSelect.Text, new Dictionary<DateTime, string>());
             //            TimeSpan tsSendTime = sched.GetSendTime(timePicker.Text);
 
@@ -118,6 +124,7 @@ namespace EmailSender
             //            List<string> emails = new List<string>();
             //            foreach(Email email in locator.Main.Emails) { emails.Add(email.EmailCol); }
             //            sched.SendEmails(dtSendDateTime, ess, emails);
+            #endregion
         }
 
         public bool isRichTBEmpty(RichTextBox rtb)
