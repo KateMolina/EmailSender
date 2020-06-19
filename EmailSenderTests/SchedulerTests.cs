@@ -21,7 +21,7 @@ namespace EmailSender.Tests
             scheduler = new Scheduler();
             timeSpan = new TimeSpan();
             Debug.WriteLine("Test Initialize");
-            scheduler.DatesEmailTests = new Dictionary<DateTime, string>()
+            scheduler.DatesEmailDic = new Dictionary<DateTime, string>()
             {
                 {new DateTime(2016, 12, 24, 00, 0, 0), "text1" },
                 {new DateTime(2016, 12, 24, 00, 30, 0), "text2" },
@@ -35,25 +35,25 @@ namespace EmailSender.Tests
             DateTime dt2 = new DateTime(2016, 12, 24, 00, 30, 0);
             DateTime dt3 = new DateTime(2016, 12, 24, 01, 0, 0);
 
-            if (scheduler.DatesEmailTests.Keys.First<DateTime>().ToShortTimeString() == dt1.ToShortTimeString())
+            if (scheduler.DatesEmailDic.Keys.First<DateTime>().ToShortTimeString() == dt1.ToShortTimeString())
             {
-                Debug.WriteLine("Body " + scheduler.DatesEmailTests[scheduler.DatesEmailTests.Keys.First<DateTime>()]);
-                Debug.WriteLine("Subject " + $"Distro from {scheduler.DatesEmailTests.Keys.First<DateTime>().ToShortDateString()} {scheduler.DatesEmailTests.Keys.First<DateTime>().ToShortTimeString()}");
-                scheduler.DatesEmailTests.Remove(scheduler.DatesEmailTests.Keys.First<DateTime>());
+                Debug.WriteLine("Body " + scheduler.DatesEmailDic[scheduler.DatesEmailDic.Keys.First<DateTime>()]);
+                Debug.WriteLine("Subject " + $"Distro from {scheduler.DatesEmailDic.Keys.First<DateTime>().ToShortDateString()} {scheduler.DatesEmailDic.Keys.First<DateTime>().ToShortTimeString()}");
+                scheduler.DatesEmailDic.Remove(scheduler.DatesEmailDic.Keys.First<DateTime>());
             }
-            if(scheduler.DatesEmailTests.Keys.First<DateTime>().ToShortTimeString() == dt2.ToShortTimeString())
+            if(scheduler.DatesEmailDic.Keys.First<DateTime>().ToShortTimeString() == dt2.ToShortTimeString())
             {
-                Debug.WriteLine("Body " + scheduler.DatesEmailTests[scheduler.DatesEmailTests.Keys.First<DateTime>()]);
-                Debug.WriteLine("Subject " + $"Distro from {scheduler.DatesEmailTests.Keys.First<DateTime>().ToShortDateString()} {scheduler.DatesEmailTests.Keys.First<DateTime>().ToShortTimeString()}");
-                scheduler.DatesEmailTests.Remove(scheduler.DatesEmailTests.Keys.First<DateTime>());
+                Debug.WriteLine("Body " + scheduler.DatesEmailDic[scheduler.DatesEmailDic.Keys.First<DateTime>()]);
+                Debug.WriteLine("Subject " + $"Distro from {scheduler.DatesEmailDic.Keys.First<DateTime>().ToShortDateString()} {scheduler.DatesEmailDic.Keys.First<DateTime>().ToShortTimeString()}");
+                scheduler.DatesEmailDic.Remove(scheduler.DatesEmailDic.Keys.First<DateTime>());
             }
-            if (scheduler.DatesEmailTests.Keys.First<DateTime>().ToShortTimeString() == dt3.ToShortTimeString())
+            if (scheduler.DatesEmailDic.Keys.First<DateTime>().ToShortTimeString() == dt3.ToShortTimeString())
             {
-                Debug.WriteLine("Body " + scheduler.DatesEmailTests[scheduler.DatesEmailTests.Keys.First<DateTime>()]);
-                Debug.WriteLine("Subject " + $"Distro from {scheduler.DatesEmailTests.Keys.First<DateTime>().ToShortDateString()} {scheduler.DatesEmailTests.Keys.First<DateTime>().ToShortTimeString()}");
-                scheduler.DatesEmailTests.Remove(scheduler.DatesEmailTests.Keys.First<DateTime>());
+                Debug.WriteLine("Body " + scheduler.DatesEmailDic[scheduler.DatesEmailDic.Keys.First<DateTime>()]);
+                Debug.WriteLine("Subject " + $"Distro from {scheduler.DatesEmailDic.Keys.First<DateTime>().ToShortDateString()} {scheduler.DatesEmailDic.Keys.First<DateTime>().ToShortTimeString()}");
+                scheduler.DatesEmailDic.Remove(scheduler.DatesEmailDic.Keys.First<DateTime>());
             }
-            Assert.AreEqual(0, scheduler.DatesEmailTests.Count);
+            Assert.AreEqual(0, scheduler.DatesEmailDic.Count);
         }
 
         [TestMethod()]

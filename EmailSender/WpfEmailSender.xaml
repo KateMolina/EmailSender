@@ -96,7 +96,7 @@
                 <Grid >
                     <StackPanel>
                         <Calendar x:Name="cldScheduleDateTimes" SelectionMode="MultipleRange" HorizontalAlignment="Left" Margin="0,20,0,0"/>
-                        <xctk:TimePicker x:Name="timePicker" HorizontalAlignment="Left" Width="179"/>
+
                         <Button x:Name="btnSchedule" Height="20" Width="179" HorizontalAlignment="Left" Click="BtnSchedule_Click">
                             <StackPanel Orientation="Horizontal">
                                 <Image Source="Images/clock.png" Margin="0,0,5,0"/>
@@ -104,13 +104,31 @@
                             </StackPanel>
                         </Button>
                         <Button x:Name="SendAtOnce" Content="Send At Once" Height="20" Width="179" HorizontalAlignment="Left" Click="SendAtOnce_Click"/>
+                        <ListView x:Name="plannerListView" Height="100" Margin="0,0,274.333,0">
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn/>
+                                </GridView>
+                            </ListView.View>
+                            <Button x:Name="btnAddShedControl" Width="491" Click="BtnAddShedControl_Click">
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="Images/mailPlus.png" Height="15" Margin="2"/>
+                                    <TextBlock Text=" Add a Message"/>
+                                </StackPanel>
+                            </Button>
+                        </ListView>
                     </StackPanel>
 
                 </Grid>
             </TabItem>
             <TabItem x:Name="EditorTab" Header="Editor" >
                 <Grid Background="#FFE5E5E5">
-                    <RichTextBox x:Name="rtb">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="94*"/>
+                        <ColumnDefinition Width="8*"/>
+                        <ColumnDefinition Width="685*"/>
+                    </Grid.ColumnDefinitions>
+                    <RichTextBox x:Name="rtb" Grid.ColumnSpan="3" Margin="0,0,-0.667,-0.667">
                         <!--<FlowDocument>
                             <Paragraph>
                                 <Run Text="RichTextBox"/>

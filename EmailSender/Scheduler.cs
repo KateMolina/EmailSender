@@ -14,12 +14,12 @@ namespace EmailSender
     {
         DispatcherTimer timer = new DispatcherTimer();
         EmailSendService emailSendService;
-        DateTime dtSend;
+       // DateTime dtSend;
         // ObservableCollection<Email> emails;
         List<string> emails;
         string mailFrom;
         Dictionary<DateTime, string> dicDates = new Dictionary<DateTime, string>();
-        public Dictionary<DateTime,string> DatesEmailTests
+        public Dictionary<DateTime,string> DatesEmailDic
         {
             get { return dicDates; }
             set
@@ -34,9 +34,10 @@ namespace EmailSender
         {
 
         }
-        public Scheduler(string From)
+        public Scheduler(string From, Dictionary<DateTime, string> dicDT)
         {
             mailFrom = From;
+            DatesEmailDic = dicDT;
         }
         public TimeSpan GetSendTime(string strSendTime)
         {
@@ -49,9 +50,8 @@ namespace EmailSender
             return tsSendTime;
         }
 
-        public void SendEmails(DateTime dtSend, EmailSendService emailSendService, List<string> emails)
+        public void SendEmails(EmailSendService emailSendService, List<string> emails)
         {
-            this.dtSend = dtSend;
             this.emailSendService = emailSendService;
             this.emails = emails;
             timer.Tick += Timer_Tick;
