@@ -20,7 +20,11 @@ namespace EmailSender.View
     /// </summary>
     public partial class ListViewItemScheduler : UserControl
     {
-        private object layoutroot;
+        SchedulerRTBWindow rTBWindow = new SchedulerRTBWindow();
+        private DateTime _timePickerVal;
+        private string _text;
+       public DateTime TimePickerValue { get => _timePickerVal; set { if (lvTimePicker.Value != null) _timePickerVal = (DateTime)lvTimePicker.Value; }}
+        public string Text { get => _text; set => _text = rTBWindow.RtbContent; }
 
         public ListViewItemScheduler()
         {
@@ -32,10 +36,8 @@ namespace EmailSender.View
         {
             SchedulerRTBWindow rtbWin = new SchedulerRTBWindow();
             rtbWin.Show();
-        
-           
-            
         }
+
 
         private void BtnDeleteDT_Click(object sender, RoutedEventArgs e)
         {

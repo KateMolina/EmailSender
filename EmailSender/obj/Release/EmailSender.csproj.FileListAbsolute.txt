@@ -72,3 +72,6 @@ C:\Users\katemolina\Desktop\JustFolder\NewStart2020\EmailSender\EmailSender\obj\
 C:\Users\katemolina\Desktop\JustFolder\NewStart2020\EmailSender\EmailSender\obj\Release\EmailSender.exe
 C:\Users\katemolina\Desktop\JustFolder\NewStart2020\EmailSender\EmailSender\obj\Release\EmailSender.pdb
 C:\Users\katemolina\Desktop\JustFolder\NewStart2020\EmailSender\EmailSender\obj\Release\View\ListViewItemScheduler.g.cs
+C:\Users\katemolina\Desktop\JustFolder\NewStart2020\EmailSender\EmailSender\obj\Release\View\SchedulerRTBWindow.g.cs
+C:\Users\katemolina\Desktop\JustFolder\NewStart2020\EmailSender\EmailSender\obj\Release\View\ListViewItemScheduler.baml
+C:\Users\katemolina\Desktop\JustFolder\NewStart2020\EmailSender\EmailSender\obj\Release\View\SchedulerRTBWindow.baml

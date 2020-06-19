@@ -42,6 +42,8 @@ namespace EmailSender
         }
 
         KeyValuePair<string, int> item;
+        EmailSendService emailSender;
+        Scheduler sched;
 
         private void BtnClock_Click(object sender, RoutedEventArgs e)
         {
@@ -69,7 +71,7 @@ namespace EmailSender
             {
                 if (!isRichTBEmpty(rtb))
                 {
-                    EmailSendService emailSender = new EmailSendService(strLogin, strPassword, sSmtp, iPort, ContentFromRTB(rtb));
+                    emailSender = new EmailSendService(strLogin, strPassword, sSmtp, iPort, ContentFromRTB(rtb));
                     var locator = (ViewModelLocator)FindResource("Locator");
                     List<string> emails = new List<string>();
                     foreach(Email email in locator.Main.Emails)
@@ -88,24 +90,34 @@ namespace EmailSender
             catch { MessageBox.Show("Something went wrong"); }
           
         }
-
+        ListViewItemScheduler lvItem;
         private void BtnSchedule_Click(object sender, RoutedEventArgs e)
         {
-           // Scheduler sched = new Scheduler(cbSenderSelect.Text);
-//            TimeSpan tsSendTime = sched.GetSendTime(timePicker.Text);
+            item = (KeyValuePair<string, int>)cbSmtpSelect.SelectionBoxItem;
+            emailSender = new EmailSendService(cbSenderSelect.Text, cbSenderSelect.SelectedValue.ToString(), item.Key, item.Value, ContentFromRTB(rtb));
+            sched = new Scheduler();
+           
+            for (int i = 0; i < plannerListView.Items.Count; i++)
+            {
+                var item = plannerListView.Items[i];
+                lvItem = item as ListViewItemScheduler;
+                sched.DatesEmailDic.Add(lvItem.TimePickerValue, lvItem.Text);
+            }
+            // Scheduler sched = new Scheduler(cbSenderSelect.Text, new Dictionary<DateTime, string>());
+            //            TimeSpan tsSendTime = sched.GetSendTime(timePicker.Text);
 
-////            if(tsSendTime ==new TimeSpan()) { MessageBox.Show("Incorrect date format"); return; }
+            ////            if(tsSendTime ==new TimeSpan()) { MessageBox.Show("Incorrect date format"); return; }
 
-//            DateTime dtSendDateTime = (cldScheduleDateTimes.SelectedDate ?? DateTime.Today).Add(tsSendTime);
+            //            DateTime dtSendDateTime = (cldScheduleDateTimes.SelectedDate ?? DateTime.Today).Add(tsSendTime);
 
-//            if (dtSendDateTime < DateTime.Now) { MessageBox.Show("Scheduled Date and Time should not be before current ones"); return; }
+            //            if (dtSendDateTime < DateTime.Now) { MessageBox.Show("Scheduled Date and Time should not be before current ones"); return; }
 
-//            item = (KeyValuePair<string, int>)cbSmtpSelect.SelectionBoxItem;
-//            EmailSendService ess = new EmailSendService(cbSenderSelect.Text, cbSenderSelect.SelectedValue.ToString(), item.Key, item.Value, ContentFromRTB(rtb));
-//            var locator = (ViewModelLocator)FindResource("Locator");
-//            List<string> emails = new List<string>();
-//            foreach(Email email in locator.Main.Emails) { emails.Add(email.EmailCol); }
-//            sched.SendEmails(dtSendDateTime, ess, emails);
+            //            item = (KeyValuePair<string, int>)cbSmtpSelect.SelectionBoxItem;
+            //            EmailSendService ess = new EmailSendService(cbSenderSelect.Text, cbSenderSelect.SelectedValue.ToString(), item.Key, item.Value, ContentFromRTB(rtb));
+            //            var locator = (ViewModelLocator)FindResource("Locator");
+            //            List<string> emails = new List<string>();
+            //            foreach(Email email in locator.Main.Emails) { emails.Add(email.EmailCol); }
+            //            sched.SendEmails(dtSendDateTime, ess, emails);
         }
 
         public bool isRichTBEmpty(RichTextBox rtb)
@@ -126,6 +138,6 @@ namespace EmailSender
         {
             plannerListView.Items.Add(new ListViewItemScheduler());
         }
-        //no changes
+       
     }
 }

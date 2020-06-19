@@ -23,5 +23,19 @@ namespace EmailSender.View
         {
             InitializeComponent();
         }
+
+        private string _rtbContent;
+        public string RtbContent { get => _rtbContent; set => _rtbContent = value; }
+        private void BtnSave_Click(object sender, RoutedEventArgs e)
+        {
+            TextRange txtRange;
+            txtRange = new TextRange(rtbScheduler.Document.ContentStart, rtbScheduler.Document.ContentEnd);
+            RtbContent = txtRange.Text;
+        }
+
+        private void BtnCancel_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }
