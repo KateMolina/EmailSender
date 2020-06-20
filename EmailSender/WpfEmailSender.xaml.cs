@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using CodePasswordDLL;
+using EmailSender.View;
 using EmailSender.ViewModel;
 using EmailSendServiceDLL;
 
@@ -41,6 +42,8 @@ namespace EmailSender
         }
 
         KeyValuePair<string, int> item;
+        EmailSendService emailSender;
+        Scheduler sched;
 
         private void BtnClock_Click(object sender, RoutedEventArgs e)
         {
@@ -68,7 +71,7 @@ namespace EmailSender
             {
                 if (!isRichTBEmpty(rtb))
                 {
-                    EmailSendService emailSender = new EmailSendService(strLogin, strPassword, sSmtp, iPort, ContentFromRTB(rtb));
+                    emailSender = new EmailSendService(strLogin, strPassword, sSmtp, iPort, ContentFromRTB(rtb));
                     var locator = (ViewModelLocator)FindResource("Locator");
                     List<string> emails = new List<string>();
                     foreach(Email email in locator.Main.Emails)
@@ -87,24 +90,41 @@ namespace EmailSender
             catch { MessageBox.Show("Something went wrong"); }
           
         }
-
+        ListViewItemScheduler lvItem;
         private void BtnSchedule_Click(object sender, RoutedEventArgs e)
         {
-            Scheduler sched = new Scheduler(cbSenderSelect.Text);
-            TimeSpan tsSendTime = sched.GetSendTime(timePicker.Text);
-
-            if(tsSendTime ==new TimeSpan()) { MessageBox.Show("Incorrect date format"); return; }
-
-            DateTime dtSendDateTime = (cldScheduleDateTimes.SelectedDate ?? DateTime.Today).Add(tsSendTime);
-
-            if (dtSendDateTime < DateTime.Now) { MessageBox.Show("Scheduled Date and Time should not be before current ones"); return; }
-
             item = (KeyValuePair<string, int>)cbSmtpSelect.SelectionBoxItem;
-            EmailSendService ess = new EmailSendService(cbSenderSelect.Text, cbSenderSelect.SelectedValue.ToString(), item.Key, item.Value, ContentFromRTB(rtb));
-            var locator = (ViewModelLocator)FindResource("Locator");
-            List<string> emails = new List<string>();
-            foreach(Email email in locator.Main.Emails) { emails.Add(email.EmailCol); }
-            sched.SendEmails(dtSendDateTime, ess, emails);
+            emailSender = new EmailSendService(cbSenderSelect.Text, cbSenderSelect.SelectedValue.ToString(), item.Key, item.Value, ContentFromRTB(rtb));
+            sched = new Scheduler();
+           
+            for (int i = 0; i < plannerListView.Items.Count; i++)
+            {
+                var item = plannerListView.Items[i];
+                lvItem = item as ListViewItemScheduler;
+                sched.DatesEmailDic.Add(lvItem.TimePickerValue, lvItem.Text);
+            }
+           var locator = (ViewModelLocator)FindResource("Locator");
+           List<string> emails = new List<string>();
+           foreach (Email email in locator.Main.Emails) { emails.Add(email.EmailCol); }
+            sched.SendEmails(emailSender, emails);
+
+            #region Old code for TimePicker control using TimeSpan obj
+            // Scheduler sched = new Scheduler(cbSenderSelect.Text, new Dictionary<DateTime, string>());
+            //            TimeSpan tsSendTime = sched.GetSendTime(timePicker.Text);
+
+            ////            if(tsSendTime ==new TimeSpan()) { MessageBox.Show("Incorrect date format"); return; }
+
+            //            DateTime dtSendDateTime = (cldScheduleDateTimes.SelectedDate ?? DateTime.Today).Add(tsSendTime);
+
+            //            if (dtSendDateTime < DateTime.Now) { MessageBox.Show("Scheduled Date and Time should not be before current ones"); return; }
+
+            //            item = (KeyValuePair<string, int>)cbSmtpSelect.SelectionBoxItem;
+            //            EmailSendService ess = new EmailSendService(cbSenderSelect.Text, cbSenderSelect.SelectedValue.ToString(), item.Key, item.Value, ContentFromRTB(rtb));
+            //            var locator = (ViewModelLocator)FindResource("Locator");
+            //            List<string> emails = new List<string>();
+            //            foreach(Email email in locator.Main.Emails) { emails.Add(email.EmailCol); }
+            //            sched.SendEmails(dtSendDateTime, ess, emails);
+            #endregion
         }
 
         public bool isRichTBEmpty(RichTextBox rtb)
@@ -120,6 +140,11 @@ namespace EmailSender
             TextRange tr = new TextRange(rtb.Document.ContentStart, rtb.Document.ContentEnd);
             return tr.Text;
         }
-        //Didn't get how to add TabSwitcher
+
+        private void BtnAddShedControl_Click(object sender, RoutedEventArgs e)
+        {
+            plannerListView.Items.Add(new ListViewItemScheduler());
+        }
+       
     }
 }
