@@ -17,7 +17,6 @@ namespace EmailSender
         // DateTime dtSend;
         // ObservableCollection<Email> emails;
         List<string> emails;
-        string mailFrom;
         Dictionary<DateTime, string> dicDates = new Dictionary<DateTime, string>();
         public Dictionary<DateTime, string> DatesEmailDic
         {
@@ -34,9 +33,8 @@ namespace EmailSender
         {
 
         }
-        public Scheduler(string From, Dictionary<DateTime, string> dicDT)
+        public Scheduler(Dictionary<DateTime, string> dicDT)
         {
-            mailFrom = From;
             DatesEmailDic = dicDT;
         }
         public TimeSpan GetSendTime(string strSendTime)
@@ -71,7 +69,7 @@ namespace EmailSender
             {
                 emailSendService.StrBody = dicDates[dicDates.Keys.First<DateTime>()];
                 emailSendService.StrSubject = $"Distribution from {dicDates.Keys.First<DateTime>().ToShortTimeString()} ";
-                emailSendService.SendEmails(emails, mailFrom);
+                emailSendService.SendEmails(emails);
                 dicDates.Remove(dicDates.Keys.First<DateTime>());
             }
 

@@ -1,5 +1,6 @@
 C:\Users\katemolina\Desktop\JustFolder\NewStart2020\EmailSender\TabSwitcher\bin\Release\TabSwitcher.dll
 C:\Users\katemolina\Desktop\JustFolder\NewStart2020\EmailSender\TabSwitcher\bin\Release\TabSwitcher.pdb
+C:\Users\katemolina\Desktop\JustFolder\NewStart2020\EmailSender\TabSwitcher\obj\Release\TabSwitcher.csprojAssemblyReference.cache
 C:\Users\katemolina\Desktop\JustFolder\NewStart2020\EmailSender\TabSwitcher\obj\Release\TabSwitcherControl.g.cs
 C:\Users\katemolina\Desktop\JustFolder\NewStart2020\EmailSender\TabSwitcher\obj\Release\TabSwitcher_MarkupCompile.cache
 C:\Users\katemolina\Desktop\JustFolder\NewStart2020\EmailSender\TabSwitcher\obj\Release\TabSwitcher_MarkupCompile.lref

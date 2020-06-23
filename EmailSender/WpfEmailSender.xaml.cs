@@ -74,7 +74,7 @@ namespace EmailSender
                     List<string> emails = new List<string>();
                     foreach(Email email in locator.Main.Emails)
                     { emails.Add(email.EmailCol); }
-                    emailSender.SendEmails(emails, strLogin);
+                    emailSender.SendEmails(emails);
                 }
                 else
                 {
