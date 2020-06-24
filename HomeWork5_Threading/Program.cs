@@ -9,13 +9,14 @@ namespace HomeWork5_Threading
 {
     class Program
     {
-        public static AutoResetEvent _event = new AutoResetEvent(false);
+        private static AutoResetEvent _event = new AutoResetEvent(false);
+       
         static void Main(string[] args)
         {
             CalculationAndIOTaskClass calcIOClass = new CalculationAndIOTaskClass();
-            
 
-    // 1.
+
+            // 1.
             Console.WriteLine("Enter a number! to calculate a factorial for:");
             object n = Convert.ToInt32(Console.ReadLine());
             var thread = new Thread(new ParameterizedThreadStart(calcIOClass.GetFactorial));
@@ -24,7 +25,7 @@ namespace HomeWork5_Threading
             Console.ReadLine();
             _event.Set();
             //  ------------------------------------------------------------
-    // 2.
+            // 2.
             Console.WriteLine("Enter a number to calculate the sum of the whole numbers before:");
             object n1 = Convert.ToInt32(Console.ReadLine());
             var thread2 = new Thread(new ParameterizedThreadStart(calcIOClass.GetWholeNumber));
@@ -33,8 +34,10 @@ namespace HomeWork5_Threading
             Console.ReadLine();
             _event.Set();
             //  ------------------------------------------------------------
-    // 3. 
-            calcIOClass.ReadFromCSV();
+            // 3. 
+            var thread3 = new Thread(calcIOClass.ReadFromCSV);
+            thread3.Start();
+           
 
         }
 

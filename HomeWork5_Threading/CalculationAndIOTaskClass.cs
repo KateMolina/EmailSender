@@ -5,27 +5,33 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Collections;
+using System.Threading;
 
 namespace HomeWork5_Threading
 {
     class CalculationAndIOTaskClass
     {
+        private static object lockObj = new object();
         public void ReadFromCSV()
         {
-            try
-            {
-                FileStream fileIn = new FileStream("emails.csv", FileMode.Open, FileAccess.Read);
-                FileStream fileOut = new FileStream("newfile.txt", FileMode.Create, FileAccess.Write);
-                int i;
-                while ((i = fileIn.ReadByte()) != -1)
+          //  string fileName = (string)o;
+           
+                try
                 {
-                    fileOut.WriteByte((byte)i);
+                    FileStream fileIn = new FileStream("emails.csv", FileMode.Open, FileAccess.Read);
+                    FileStream fileOut = new FileStream("newfile.txt", FileMode.Create, FileAccess.Write);
+                    int i;
+                    while ((i = fileIn.ReadByte()) != -1)
+                    {
+                        fileOut.WriteByte((byte)i);
+                    }
+                    fileIn.Close();
+                    fileOut.Close();
+                    
                 }
-                fileIn.Close();
-                fileOut.Close();
-            }
-            catch (Exception e) { Console.WriteLine(e.Message); }
-            Console.WriteLine("Succesfully copied" );
+                catch (Exception e) { Console.WriteLine(e.Message); }
+                Console.WriteLine("Succesfully copied");
+            
         }
 
 
