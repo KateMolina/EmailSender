@@ -18,7 +18,7 @@ namespace HomeWork5_Threading
            
                 try
                 {
-                    FileStream fileIn = new FileStream("emails.csv", FileMode.Open, FileAccess.Read);
+                    FileStream fileIn = new FileStream("file.csv", FileMode.Open, FileAccess.Read);
                     FileStream fileOut = new FileStream("newfile.txt", FileMode.Create, FileAccess.Write);
                     int i;
                     while ((i = fileIn.ReadByte()) != -1)
