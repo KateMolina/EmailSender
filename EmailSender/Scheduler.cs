@@ -10,32 +10,19 @@ using System.Collections.ObjectModel;
 
 namespace EmailSender
 {
-    public class Scheduler
+    class Scheduler
     {
         DispatcherTimer timer = new DispatcherTimer();
         EmailSendService emailSendService;
-        // DateTime dtSend;
+        DateTime dtSend;
         // ObservableCollection<Email> emails;
         List<string> emails;
-        Dictionary<DateTime, string> dicDates = new Dictionary<DateTime, string>();
-        public Dictionary<DateTime, string> DatesEmailDic
-        {
-            get { return dicDates; }
-            set
-            {
-                dicDates = value;
-                dicDates = dicDates.OrderBy(pair => pair.Key).ToDictionary(pair => pair.Key, pair => pair.Value);
-            }
-        }
+        string mailFrom;
 
 
-        public Scheduler()
+        public Scheduler(string From)
         {
-
-        }
-        public Scheduler(Dictionary<DateTime, string> dicDT)
-        {
-            DatesEmailDic = dicDT;
+            mailFrom = From;
         }
         public TimeSpan GetSendTime(string strSendTime)
         {
@@ -48,8 +35,9 @@ namespace EmailSender
             return tsSendTime;
         }
 
-        public void SendEmails(EmailSendService emailSendService, List<string> emails)
+        public void SendEmails(DateTime dtSend, EmailSendService emailSendService, List<string> emails)
         {
+            this.dtSend = dtSend;
             this.emailSendService = emailSendService;
             this.emails = emails;
             timer.Tick += Timer_Tick;
@@ -59,28 +47,12 @@ namespace EmailSender
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-            //Console.WriteLine("Scheduled date = " + dicDates.Keys.First<DateTime>().ToShortTimeString());
-            if (dicDates.Count == 0)
+            if (dtSend.ToShortTimeString() == DateTime.Now.ToShortTimeString())
             {
+                emailSendService.SendEmails(emails, mailFrom);
                 timer.Stop();
-                MessageBox.Show("Emails have been sent");
+                MessageBox.Show("Emais have been sent");
             }
-            else if (dicDates.Keys.First<DateTime>().ToShortTimeString() == DateTime.Now.ToShortTimeString())
-            {
-                emailSendService.StrBody = dicDates[dicDates.Keys.First<DateTime>()];
-                emailSendService.StrSubject = $"Distribution from {dicDates.Keys.First<DateTime>().ToShortTimeString()} ";
-                emailSendService.SendEmails(emails);
-                dicDates.Remove(dicDates.Keys.First<DateTime>());
-            }
-
-            #region old code
-            //if (dtSend.ToShortTimeString() == DateTime.Now.ToShortTimeString())
-            //{
-            //    emailSendService.SendEmails(emails, mailFrom);
-            //    timer.Stop();
-            //    MessageBox.Show("Emais have been sent");
-            //}
-            #endregion
 
         }
     }

@@ -86,7 +86,3 @@ C:\Users\katemolina\Desktop\JustFolder\NewStart2020\EmailSender\EmailSender\obj\
 C:\Users\katemolina\Desktop\JustFolder\NewStart2020\EmailSender\EmailSender\obj\Debug\EmailSender.csproj.CopyComplete
 C:\Users\katemolina\Desktop\JustFolder\NewStart2020\EmailSender\EmailSender\obj\Debug\EmailSender.exe
 C:\Users\katemolina\Desktop\JustFolder\NewStart2020\EmailSender\EmailSender\obj\Debug\EmailSender.pdb
-C:\Users\katemolina\Desktop\JustFolder\NewStart2020\EmailSender\EmailSender\obj\Debug\View\ListViewItemScheduler.g.cs
-C:\Users\katemolina\Desktop\JustFolder\NewStart2020\EmailSender\EmailSender\obj\Debug\View\SchedulerRTBWindow.g.cs
-C:\Users\katemolina\Desktop\JustFolder\NewStart2020\EmailSender\EmailSender\obj\Debug\View\ListViewItemScheduler.baml
-C:\Users\katemolina\Desktop\JustFolder\NewStart2020\EmailSender\EmailSender\obj\Debug\View\SchedulerRTBWindow.baml

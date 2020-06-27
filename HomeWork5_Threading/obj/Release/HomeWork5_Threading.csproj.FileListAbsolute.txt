@@ -1,7 +1,0 @@
-C:\Users\katemolina\Desktop\JustFolder\NewStart2020\EmailSender\HomeWork5_Threading\bin\Release\HomeWork5_Threading.exe.config
-C:\Users\katemolina\Desktop\JustFolder\NewStart2020\EmailSender\HomeWork5_Threading\bin\Release\HomeWork5_Threading.exe
-C:\Users\katemolina\Desktop\JustFolder\NewStart2020\EmailSender\HomeWork5_Threading\bin\Release\HomeWork5_Threading.pdb
-C:\Users\katemolina\Desktop\JustFolder\NewStart2020\EmailSender\HomeWork5_Threading\obj\Release\HomeWork5_Threading.csprojAssemblyReference.cache
-C:\Users\katemolina\Desktop\JustFolder\NewStart2020\EmailSender\HomeWork5_Threading\obj\Release\HomeWork5_Threading.csproj.CoreCompileInputs.cache
-C:\Users\katemolina\Desktop\JustFolder\NewStart2020\EmailSender\HomeWork5_Threading\obj\Release\HomeWork5_Threading.exe
-C:\Users\katemolina\Desktop\JustFolder\NewStart2020\EmailSender\HomeWork5_Threading\obj\Release\HomeWork5_Threading.pdb

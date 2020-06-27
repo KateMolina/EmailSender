@@ -11,13 +11,7 @@
 
 namespace EmailSender
 {
-	using System.Data.Linq;
 	using System.Data.Linq.Mapping;
-	using System.Data;
-	using System.Collections.Generic;
-	using System.Reflection;
-	using System.Linq;
-	using System.Linq.Expressions;
 	using System.ComponentModel;
 	using System;
 	
@@ -75,7 +69,7 @@ namespace EmailSender
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Email")]
-	public partial class Email : INotifyPropertyChanging, INotifyPropertyChanged, IDataErrorInfo
+	public partial class Email : INotifyPropertyChanging, INotifyPropertyChanged 
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
@@ -96,17 +90,9 @@ namespace EmailSender
     partial void OnEmailColChanged();
     partial void OnNameChanging(string value);
     partial void OnNameChanged();
-        #endregion
-
-
-        public string Error
-        {
-            get { return ""; }
-        }
-
-        public string this[string columnName] { get { if (columnName == "EmailCol") { if (_EmailCol != null && _EmailCol.Length < 4) return "Please enter a valid email"; } return ""; } }
-
-        public Email()
+    #endregion
+		
+		public Email()
 		{
 			OnCreated();
 		}
@@ -170,9 +156,8 @@ namespace EmailSender
 				}
 			}
 		}
-
-        
-        public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
 		

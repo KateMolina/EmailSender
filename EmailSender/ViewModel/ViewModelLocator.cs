@@ -24,7 +24,7 @@ namespace EmailSender.ViewModel
 
     public class ViewModelLocator
     {
-
+       
         public ViewModelLocator()
         {
             CommonServiceLocator.ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
@@ -53,7 +53,7 @@ namespace EmailSender.ViewModel
                 return CommonServiceLocator.ServiceLocator.Current.GetInstance<MainViewModel>();
             }
         }
-
+        
         public static void Cleanup()
         {
             // TODO Clear the ViewModels
