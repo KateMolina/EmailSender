@@ -1,0 +1,7 @@
+C:\Users\katemolina\Desktop\JustFolder\NewStart2020\EmailSender\HomeWork6_Parallel\bin\Debug\HomeWork6_Parallel.exe.config
+C:\Users\katemolina\Desktop\JustFolder\NewStart2020\EmailSender\HomeWork6_Parallel\bin\Debug\HomeWork6_Parallel.exe
+C:\Users\katemolina\Desktop\JustFolder\NewStart2020\EmailSender\HomeWork6_Parallel\bin\Debug\HomeWork6_Parallel.pdb
+C:\Users\katemolina\Desktop\JustFolder\NewStart2020\EmailSender\HomeWork6_Parallel\obj\Debug\HomeWork6_Parallel.csprojAssemblyReference.cache
+C:\Users\katemolina\Desktop\JustFolder\NewStart2020\EmailSender\HomeWork6_Parallel\obj\Debug\HomeWork6_Parallel.csproj.CoreCompileInputs.cache
+C:\Users\katemolina\Desktop\JustFolder\NewStart2020\EmailSender\HomeWork6_Parallel\obj\Debug\HomeWork6_Parallel.exe
+C:\Users\katemolina\Desktop\JustFolder\NewStart2020\EmailSender\HomeWork6_Parallel\obj\Debug\HomeWork6_Parallel.pdb
