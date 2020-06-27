@@ -1,0 +1,13 @@
+C:\Users\katemolina\Desktop\JustFolder\NewStart2020\EmailSender\TabSwitcher\bin\Release\TabSwitcher.dll
+C:\Users\katemolina\Desktop\JustFolder\NewStart2020\EmailSender\TabSwitcher\bin\Release\TabSwitcher.pdb
+C:\Users\katemolina\Desktop\JustFolder\NewStart2020\EmailSender\TabSwitcher\obj\Release\TabSwitcher.csprojAssemblyReference.cache
+C:\Users\katemolina\Desktop\JustFolder\NewStart2020\EmailSender\TabSwitcher\obj\Release\TabSwitcherControl.g.cs
+C:\Users\katemolina\Desktop\JustFolder\NewStart2020\EmailSender\TabSwitcher\obj\Release\TabSwitcher_MarkupCompile.cache
+C:\Users\katemolina\Desktop\JustFolder\NewStart2020\EmailSender\TabSwitcher\obj\Release\TabSwitcher_MarkupCompile.lref
+C:\Users\katemolina\Desktop\JustFolder\NewStart2020\EmailSender\TabSwitcher\obj\Release\TabSwitcherControl.baml
+C:\Users\katemolina\Desktop\JustFolder\NewStart2020\EmailSender\TabSwitcher\obj\Release\TabSwitcher.g.resources
+C:\Users\katemolina\Desktop\JustFolder\NewStart2020\EmailSender\TabSwitcher\obj\Release\TabSwitcher.Properties.Resources.resources
+C:\Users\katemolina\Desktop\JustFolder\NewStart2020\EmailSender\TabSwitcher\obj\Release\TabSwitcher.csproj.GenerateResource.cache
+C:\Users\katemolina\Desktop\JustFolder\NewStart2020\EmailSender\TabSwitcher\obj\Release\TabSwitcher.csproj.CoreCompileInputs.cache
+C:\Users\katemolina\Desktop\JustFolder\NewStart2020\EmailSender\TabSwitcher\obj\Release\TabSwitcher.dll
+C:\Users\katemolina\Desktop\JustFolder\NewStart2020\EmailSender\TabSwitcher\obj\Release\TabSwitcher.pdb
