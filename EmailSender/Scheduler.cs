@@ -14,12 +14,11 @@ namespace EmailSender
     {
         DispatcherTimer timer = new DispatcherTimer();
         EmailSendService emailSendService;
-       // DateTime dtSend;
+        // DateTime dtSend;
         // ObservableCollection<Email> emails;
         List<string> emails;
-        string mailFrom;
         Dictionary<DateTime, string> dicDates = new Dictionary<DateTime, string>();
-        public Dictionary<DateTime,string> DatesEmailDic
+        public Dictionary<DateTime, string> DatesEmailDic
         {
             get { return dicDates; }
             set
@@ -34,9 +33,8 @@ namespace EmailSender
         {
 
         }
-        public Scheduler(string From, Dictionary<DateTime, string> dicDT)
+        public Scheduler(Dictionary<DateTime, string> dicDT)
         {
-            mailFrom = From;
             DatesEmailDic = dicDT;
         }
         public TimeSpan GetSendTime(string strSendTime)
@@ -61,23 +59,28 @@ namespace EmailSender
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-            if (dicDates.Count == 0){ timer.Stop();
-            MessageBox.Show("Emails have been sent"); }
-            else if(dicDates.Keys.First<DateTime>().ToShortTimeString()== DateTime.Now.ToShortTimeString())
+            //Console.WriteLine("Scheduled date = " + dicDates.Keys.First<DateTime>().ToShortTimeString());
+            if (dicDates.Count == 0)
+            {
+                timer.Stop();
+                MessageBox.Show("Emails have been sent");
+            }
+            else if (dicDates.Keys.First<DateTime>().ToShortTimeString() == DateTime.Now.ToShortTimeString())
             {
                 emailSendService.StrBody = dicDates[dicDates.Keys.First<DateTime>()];
                 emailSendService.StrSubject = $"Distribution from {dicDates.Keys.First<DateTime>().ToShortTimeString()} ";
-                emailSendService.SendEmails(emails, mailFrom);
+                emailSendService.SendEmails(emails);
                 dicDates.Remove(dicDates.Keys.First<DateTime>());
             }
 
-
+            #region old code
             //if (dtSend.ToShortTimeString() == DateTime.Now.ToShortTimeString())
             //{
             //    emailSendService.SendEmails(emails, mailFrom);
             //    timer.Stop();
             //    MessageBox.Show("Emais have been sent");
             //}
+            #endregion
 
         }
     }

@@ -42,8 +42,6 @@ namespace EmailSender
         }
 
         KeyValuePair<string, int> item;
-        EmailSendService emailSender;
-        Scheduler sched;
 
         private void BtnClock_Click(object sender, RoutedEventArgs e)
         {
@@ -71,12 +69,12 @@ namespace EmailSender
             {
                 if (!isRichTBEmpty(rtb))
                 {
-                    emailSender = new EmailSendService(strLogin, strPassword, sSmtp, iPort, ContentFromRTB(rtb));
+                    EmailSendService emailSender = new EmailSendService(strLogin, strPassword, sSmtp, iPort, ContentFromRTB(rtb));
                     var locator = (ViewModelLocator)FindResource("Locator");
                     List<string> emails = new List<string>();
                     foreach(Email email in locator.Main.Emails)
                     { emails.Add(email.EmailCol); }
-                    emailSender.SendEmails(emails, strLogin);
+                    emailSender.SendEmails(emails);
                 }
                 else
                 {
@@ -93,23 +91,21 @@ namespace EmailSender
         ListViewItemScheduler lvItem;
         private void BtnSchedule_Click(object sender, RoutedEventArgs e)
         {
+            //Scheduler sched = new Scheduler(cbSenderSelect.Text, new Dictionary<DateTime, string>());
             item = (KeyValuePair<string, int>)cbSmtpSelect.SelectionBoxItem;
-            emailSender = new EmailSendService(cbSenderSelect.Text, cbSenderSelect.SelectedValue.ToString(), item.Key, item.Value, ContentFromRTB(rtb));
-            sched = new Scheduler();
-           
-            for (int i = 0; i < plannerListView.Items.Count; i++)
+            Scheduler sched = new Scheduler();
+            for (int i = 1; i < plannerListView.Items.Count; i++)
             {
-                var item = plannerListView.Items[i];
+                    var item = plannerListView.Items[i];
                 lvItem = item as ListViewItemScheduler;
-                sched.DatesEmailDic.Add(lvItem.TimePickerValue, lvItem.Text);
+                sched.DatesEmailDic.Add(lvItem.timePickerValue.Value, lvItem.Text);
             }
-           var locator = (ViewModelLocator)FindResource("Locator");
-           List<string> emails = new List<string>();
-           foreach (Email email in locator.Main.Emails) { emails.Add(email.EmailCol); }
+            EmailSendService emailSender = new EmailSendService(cbSenderSelect.Text, cbSenderSelect.SelectedValue.ToString(), item.Key, item.Value, ContentFromRTB(rtb));
+            var locator = (ViewModelLocator)FindResource("Locator");
+            List<string> emails = new List<string>();
+            foreach (Email email in locator.Main.Emails) { emails.Add(email.EmailCol); }
             sched.SendEmails(emailSender, emails);
 
-            #region Old code for TimePicker control using TimeSpan obj
-            // Scheduler sched = new Scheduler(cbSenderSelect.Text, new Dictionary<DateTime, string>());
             //            TimeSpan tsSendTime = sched.GetSendTime(timePicker.Text);
 
             ////            if(tsSendTime ==new TimeSpan()) { MessageBox.Show("Incorrect date format"); return; }
@@ -124,7 +120,6 @@ namespace EmailSender
             //            List<string> emails = new List<string>();
             //            foreach(Email email in locator.Main.Emails) { emails.Add(email.EmailCol); }
             //            sched.SendEmails(dtSendDateTime, ess, emails);
-            #endregion
         }
 
         public bool isRichTBEmpty(RichTextBox rtb)
