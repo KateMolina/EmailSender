@@ -11,7 +11,8 @@ namespace EmailSender.Services
     class DataAccessService : IDataAccessService
 
     {
-        EmailsDataContext context;
+        // EmailsDataContext context;
+        MailsAndSendersEntities context;
         public ObservableCollection<Email> GetEmails()
         {
             ObservableCollection<Email> Emails = new ObservableCollection<Email>();
@@ -21,14 +22,17 @@ namespace EmailSender.Services
 
         public int CreateEmail(Email email)
         {
-            context.Emails.InsertOnSubmit(email);
-            context.SubmitChanges();
+            context.Emails.Add(email);
+            //context.Emails.InsertOnSubmit(email);
+            //context.SubmitChanges();
+            context.SaveChanges();
             return email.Id;
         }
 
         public DataAccessService()
         {
-            context = new EmailsDataContext();
+            //context = new EmailsDataContext();
+            context = new MailsAndSendersEntities();
         }
     }
 }

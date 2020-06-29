@@ -24,6 +24,7 @@ namespace EmailSender
     /// </summary>
     public partial class MainWindow : Window
     {
+        private readonly MailsAndSendersEntities mailsAndSendersEntities = new MailsAndSendersEntities();
         public MainWindow()
         {
 
@@ -37,6 +38,7 @@ namespace EmailSender
 
             // DataBase db = new DataBase();
             //dgEmails.ItemsSource = db.Emails;
+            DataContext = mailsAndSendersEntities;
 
 
         }
@@ -106,20 +108,6 @@ namespace EmailSender
             foreach (Email email in locator.Main.Emails) { emails.Add(email.EmailCol); }
             sched.SendEmails(emailSender, emails);
 
-            //            TimeSpan tsSendTime = sched.GetSendTime(timePicker.Text);
-
-            ////            if(tsSendTime ==new TimeSpan()) { MessageBox.Show("Incorrect date format"); return; }
-
-            //            DateTime dtSendDateTime = (cldScheduleDateTimes.SelectedDate ?? DateTime.Today).Add(tsSendTime);
-
-            //            if (dtSendDateTime < DateTime.Now) { MessageBox.Show("Scheduled Date and Time should not be before current ones"); return; }
-
-            //            item = (KeyValuePair<string, int>)cbSmtpSelect.SelectionBoxItem;
-            //            EmailSendService ess = new EmailSendService(cbSenderSelect.Text, cbSenderSelect.SelectedValue.ToString(), item.Key, item.Value, ContentFromRTB(rtb));
-            //            var locator = (ViewModelLocator)FindResource("Locator");
-            //            List<string> emails = new List<string>();
-            //            foreach(Email email in locator.Main.Emails) { emails.Add(email.EmailCol); }
-            //            sched.SendEmails(dtSendDateTime, ess, emails);
         }
 
         public bool isRichTBEmpty(RichTextBox rtb)
