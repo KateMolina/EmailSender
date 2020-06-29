@@ -1,6 +1,6 @@
-namespace EmailSender
-{
-    partial class Email
-    {
-    }
-}
+//namespace EmailSender
+//{
+//    partial class Email
+//    {
+//    }
+//}
