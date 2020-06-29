@@ -24,6 +24,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeWork5_Threading", "Home
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeWork6_Parallel", "HomeWork6_Parallel\HomeWork6_Parallel.csproj", "{4EFD0C8F-AE76-443C-815F-675BC0FF9CF7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityFrameworkApplication", "EntityFrameworkApplication\EntityFrameworkApplication.csproj", "{76ED4BB0-792E-4CB1-AEA0-E974CFCD3D3C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -104,6 +106,14 @@ Global
 		{4EFD0C8F-AE76-443C-815F-675BC0FF9CF7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4EFD0C8F-AE76-443C-815F-675BC0FF9CF7}.Release|x86.ActiveCfg = Release|Any CPU
 		{4EFD0C8F-AE76-443C-815F-675BC0FF9CF7}.Release|x86.Build.0 = Release|Any CPU
+		{76ED4BB0-792E-4CB1-AEA0-E974CFCD3D3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76ED4BB0-792E-4CB1-AEA0-E974CFCD3D3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76ED4BB0-792E-4CB1-AEA0-E974CFCD3D3C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{76ED4BB0-792E-4CB1-AEA0-E974CFCD3D3C}.Debug|x86.Build.0 = Debug|Any CPU
+		{76ED4BB0-792E-4CB1-AEA0-E974CFCD3D3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76ED4BB0-792E-4CB1-AEA0-E974CFCD3D3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76ED4BB0-792E-4CB1-AEA0-E974CFCD3D3C}.Release|x86.ActiveCfg = Release|Any CPU
+		{76ED4BB0-792E-4CB1-AEA0-E974CFCD3D3C}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
